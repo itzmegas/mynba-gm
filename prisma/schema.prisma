@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Team {
+  id           Int      @id @default(autoincrement())
+  nbaId        Int      @unique
+  name         String
+  city         String
+  abbreviation String   @unique
+  conference   String
+  division     String
+  founded      Int?
+  players      Player[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Player {
+  id            Int      @id @default(autoincrement())
+  nbaId         Int      @unique
+  firstName     String
+  lastName      String
+  position      String?
+  height        String?
+  weight        String?
+  birthDate     DateTime?
+  country       String?
+  teamId        Int?
+  team          Team?    @relation(fields: [teamId], references: [id])
+  stats         PlayerStats[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model PlayerStats {
+  id        Int    @id @default(autoincrement())
+  playerId  Int
+  player    Player @relation(fields: [playerId], references: [id])
+  season    String
+  games     Int?
+  minutes   Float?
+  points    Float?
+  rebounds  Float?
+  assists   Float?
+  steals    Float?
+  blocks    Float?
+  turnovers Float?
+  fgMade    Int?
+  fgAttempted Int?
+  ftMade    Int?
+  ftAttempted Int?
+  threeMade Int?
+  threeAttempted Int?
+  
+  @@unique([playerId, season])
+}
