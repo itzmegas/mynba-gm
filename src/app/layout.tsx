@@ -8,6 +8,9 @@ import {
   MantineProvider,
   mantineHtmlProps,
 } from "@mantine/core";
+import { theme } from "@/lib/mantine";
+import Providers from "./_layout/providers";
+import AppShellLayout from "./_layout/app-shell";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +38,9 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <MantineProvider>{children}</MantineProvider>
+        <Providers>
+          <AppShellLayout>{children}</AppShellLayout>
+        </Providers>
       </body>
     </html>
   );
