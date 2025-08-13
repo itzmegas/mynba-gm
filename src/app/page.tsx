@@ -1,16 +1,11 @@
-import { Select } from "@mantine/core";
+"use client";
 
-import teams from "../../data/teams.json";
+import { SelectTeam } from "@/components";
 
 export default function Home() {
-  const teamOptions = teams.map((team) => ({
-    label: team.full_name,
-    value: team.id.toString(),
-  }));
-
   return (
     <div>
-      <Select label="Equipos" data={teamOptions} />
+      <SelectTeam />
     </div>
   );
 }
