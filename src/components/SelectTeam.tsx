@@ -1,10 +1,17 @@
 "use client";
 
 import { Box, Button, Card, Group, Image, Stack, Text } from "@mantine/core";
-import teams from "../../data/teams.json";
 import NextImage from "next/image";
+import { useUserStore } from "@/store/user.store";
+import teams from "../../data/teams.json";
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL_NBA;
 
 export const SelectTeam = () => {
+  const { team, setTeam } = useUserStore();
+
+  console.log("🚀 ~ SelectTeam ~ team:", team);
+
   return (
     <Stack>
       <Group grow>
@@ -22,7 +29,7 @@ export const SelectTeam = () => {
                 <Box h="150" w="150">
                   <Image
                     component={NextImage}
-                    src={`https://cdn.nba.com/logos/nba/${team.id}/global/L/logo.svg`}
+                    src={`${baseUrl}/logos/nba/${team.id}/global/L/logo.svg`}
                     height={150}
                     width={150}
                     alt="team logo"
@@ -37,7 +44,13 @@ export const SelectTeam = () => {
                 </Text>
               </Stack>
 
-              <Button color={team.colors[0]} fullWidth mt="md" radius="md">
+              <Button
+                color={team.colors[0]}
+                fullWidth
+                mt="md"
+                radius="md"
+                onClick={() => setTeam(team.id)}
+              >
                 Seleccionar
               </Button>
             </Stack>

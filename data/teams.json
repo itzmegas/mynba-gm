@@ -77,7 +77,7 @@
     "city": "Golden State",
     "state": "California",
     "year_founded": 1946,
-    "colors": []
+    "colors": ["#1D428A", "#ffc72c", "#006BB6"]
   },
   {
     "id": 1610612745,
@@ -87,7 +87,7 @@
     "city": "Houston",
     "state": "Texas",
     "year_founded": 1967,
-    "colors": []
+    "colors": ["#CE1141", "#000000", "#C4CED4"]
   },
   {
     "id": 1610612746,
@@ -97,7 +97,7 @@
     "city": "Los Angeles",
     "state": "California",
     "year_founded": 1970,
-    "colors": []
+    "colors": ["#c8102E", "#1D428a", "#BEC0C2"]
   },
   {
     "id": 1610612747,
@@ -107,7 +107,7 @@
     "city": "Los Angeles",
     "state": "California",
     "year_founded": 1948,
-    "colors": []
+    "colors": ["#552583", "#FDB927", "#000000"]
   },
   {
     "id": 1610612748,
@@ -127,7 +127,7 @@
     "city": "Milwaukee",
     "state": "Wisconsin",
     "year_founded": 1968,
-    "colors": []
+    "colors": ["#00471B", "#EEE1C6", "#0077c0"]
   },
   {
     "id": 1610612750,
@@ -137,7 +137,7 @@
     "city": "Minnesota",
     "state": "Minnesota",
     "year_founded": 1989,
-    "colors": []
+    "colors": ["#0C2340", "#236192", "#9ea2a2"]
   },
   {
     "id": 1610612751,
@@ -147,7 +147,7 @@
     "city": "Brooklyn",
     "state": "New York",
     "year_founded": 1976,
-    "colors": []
+    "colors": ["#000000", "#FFFFFF", "#002A60"]
   },
   {
     "id": 1610612752,
@@ -157,7 +157,7 @@
     "city": "New York",
     "state": "New York",
     "year_founded": 1946,
-    "colors": []
+    "colors": ["#006BB6", "#F58426", "#BEC0C2"]
   },
   {
     "id": 1610612753,
@@ -167,7 +167,7 @@
     "city": "Orlando",
     "state": "Florida",
     "year_founded": 1989,
-    "colors": []
+    "colors": ["#0077c0", "#C4ced4", "#000000"]
   },
   {
     "id": 1610612754,
@@ -177,7 +177,7 @@
     "city": "Indiana",
     "state": "Indiana",
     "year_founded": 1976,
-    "colors": []
+    "colors": ["#002D62", "#FDBB30", "#BEC0C2"]
   },
   {
     "id": 1610612755,
@@ -187,7 +187,7 @@
     "city": "Philadelphia",
     "state": "Pennsylvania",
     "year_founded": 1949,
-    "colors": []
+    "colors": ["#006bb6", "#ed174c", "#002B5C"]
   },
   {
     "id": 1610612756,
@@ -197,7 +197,7 @@
     "city": "Phoenix",
     "state": "Arizona",
     "year_founded": 1968,
-    "colors": []
+    "colors": ["#1d1160", "#e56020", "#000000"]
   },
   {
     "id": 1610612757,
@@ -207,7 +207,7 @@
     "city": "Portland",
     "state": "Oregon",
     "year_founded": 1970,
-    "colors": []
+    "colors": ["#E03A3E", "#000000", ""]
   },
   {
     "id": 1610612758,
@@ -217,7 +217,7 @@
     "city": "Sacramento",
     "state": "California",
     "year_founded": 1948,
-    "colors": []
+    "colors": ["#5a2d81", "#63727A", "#000000"]
   },
   {
     "id": 1610612759,
@@ -227,7 +227,7 @@
     "city": "San Antonio",
     "state": "Texas",
     "year_founded": 1976,
-    "colors": []
+    "colors": ["#c4ced4", "#000000", "#8a8d8f"]
   },
   {
     "id": 1610612760,
@@ -237,7 +237,7 @@
     "city": "Oklahoma City",
     "state": "Oklahoma",
     "year_founded": 1967,
-    "colors": []
+    "colors": ["#007ac1", "#ef3b24", "#002D62"]
   },
   {
     "id": 1610612761,
@@ -247,7 +247,7 @@
     "city": "Toronto",
     "state": "Ontario",
     "year_founded": 1995,
-    "colors": []
+    "colors": ["#ce1141", "#000000", "#A1A1A4"]
   },
   {
     "id": 1610612762,
@@ -257,7 +257,7 @@
     "city": "Utah",
     "state": "Utah",
     "year_founded": 1974,
-    "colors": []
+    "colors": ["#002B5C", "#00471B", "#F9A01B"]
   },
   {
     "id": 1610612763,
@@ -267,7 +267,7 @@
     "city": "Memphis",
     "state": "Tennessee",
     "year_founded": 1995,
-    "colors": []
+    "colors": ["#002B5C", "#e31837", "#C4CED4"]
   },
   {
     "id": 1610612764,
@@ -277,7 +277,7 @@
     "city": "Washington",
     "state": "District of Columbia",
     "year_founded": 1961,
-    "colors": []
+    "colors": ["#002B5C", "#e31837", "#C4CED4"]
   },
   {
     "id": 1610612765,
@@ -287,7 +287,7 @@
     "city": "Detroit",
     "state": "Michigan",
     "year_founded": 1948,
-    "colors": []
+    "colors": ["#C8102E", "#1d42ba", "#bec0c2"]
   },
   {
     "id": 1610612766,
@@ -297,6 +297,6 @@
     "city": "Charlotte",
     "state": "North Carolina",
     "year_founded": 1988,
-    "colors": []
+    "colors": ["#1d1160", "#00788C", "#A1A1A4"]
   }
 ]
