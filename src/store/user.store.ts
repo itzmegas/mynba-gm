@@ -1,3 +1,4 @@
+import { Team } from "@/types";
 import { create, StateCreator } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -7,7 +8,7 @@ export type UserPreferences = {
   readonly theme: ThemeColor;
   readonly paginationSize: number;
   readonly language: string;
-  readonly team: number | null;
+  readonly team: Team | null;
 };
 
 const defaultPreferences: UserPreferences = {
@@ -21,7 +22,7 @@ export type UserActions = {
   setPaginationSize: (paginationSize: number) => void;
   setThemeColor: (theme: ThemeColor) => void;
   setLanguage: (language: string) => void;
-  setTeam: (team: number | null) => void;
+  setTeam: (team: Team | null) => void;
 };
 
 type UserStore = UserPreferences & UserActions;
@@ -46,7 +47,7 @@ export const userStoreSlice: StateCreator<UserStore> = (set) => ({
       language,
     }));
   },
-  setTeam: (team: number | null) => {
+  setTeam: (team: Team | null) => {
     set((state) => ({
       ...state,
       team,

@@ -3,14 +3,19 @@
 import { Box, Button, Card, Group, Image, Stack, Text } from "@mantine/core";
 import NextImage from "next/image";
 import { useUserStore } from "@/store/user.store";
-import teams from "../../data/teams.json";
+import teams from "../../../data/teams.json";
+import { Team } from "@/types";
+import { redirect } from "next/navigation";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL_NBA;
 
-export const SelectTeam = () => {
-  const { team, setTeam } = useUserStore();
+const SelectTeam = () => {
+  const { setTeam } = useUserStore();
 
-  console.log("🚀 ~ SelectTeam ~ team:", team);
+  const handleSelectTeam = (team: Team) => {
+    setTeam(team);
+    redirect("/");
+  };
 
   return (
     <Stack>
@@ -49,7 +54,7 @@ export const SelectTeam = () => {
                 fullWidth
                 mt="md"
                 radius="md"
-                onClick={() => setTeam(team.id)}
+                onClick={() => handleSelectTeam(team)}
               >
                 Seleccionar
               </Button>
@@ -60,3 +65,5 @@ export const SelectTeam = () => {
     </Stack>
   );
 };
+
+export default SelectTeam;

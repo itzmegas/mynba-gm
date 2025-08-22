@@ -1,9 +1,12 @@
 "use client";
 
+import { useUserStore } from "@/store/user.store";
 import { AppShell, Burger, Group, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import teams from "../../../data/teams.json";
 
 const AppShellLayout = ({ children }: { children: React.ReactNode }) => {
+  const { team } = useUserStore();
   const [opened, { toggle }] = useDisclosure();
 
   return (
@@ -20,13 +23,15 @@ const AppShellLayout = ({ children }: { children: React.ReactNode }) => {
     >
       <AppShell.Header>
         <Group h="100%" px="md">
+          <Text>
+            {team ? teams.find((t) => t.id === team.id)?.full_name : "Welcome"}
+          </Text>
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-          Header
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
       <AppShell.Main>{children}</AppShell.Main>
-      <AppShell.Aside p="md">Aside</AppShell.Aside>
+      {/* <AppShell.Aside p="md">Aside</AppShell.Aside> */}
       <AppShell.Footer p="md">Footer</AppShell.Footer>
     </AppShell>
   );
