@@ -1,3 +1,5 @@
+@layer mantine, mantine-datatable;
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

@@ -14,11 +14,11 @@ const AppShellLayout = ({ children }: { children: React.ReactNode }) => {
       header={{ height: 60 }}
       footer={{ height: 60 }}
       navbar={{ width: 300, breakpoint: "sm", collapsed: { mobile: !opened } }}
-      aside={{
+      /*  aside={{
         width: 300,
         breakpoint: "md",
         collapsed: { desktop: false, mobile: true },
-      }}
+      }} */
       padding="md"
     >
       <AppShell.Header>
