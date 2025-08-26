@@ -9,7 +9,22 @@ def fetch_teams():
     print("📋 Obteniendo información de equipos...")
     nba_teams = teams.get_teams()
     print(f"✅ {len(nba_teams)} equipos obtenidos")
+    
+    with open('../data/teams_colors.json', 'r') as f:
+        teams_colors = json.load(f)
+
+    colors_by_id = {team['id']: team['colors'] for team in teams_colors}
+    for team in nba_teams:
+            team['colors'] = colors_by_id.get(team['id'], [])
+            
     return nba_teams
+
+def fetch_players():
+    """Obtener todos los jugadores"""
+    print("📋 Obteniendo información de jugadores...")
+    nba_players = players.get_players()
+    print(f"✅ {len(nba_players)} jugadores obtenidos")
+    return nba_players
 
 def fetch_current_players():
     """Obtener estadísticas de jugadores de la temporada actual"""
@@ -17,7 +32,7 @@ def fetch_current_players():
     
     try:
         player_stats = leaguedashplayerstats.LeagueDashPlayerStats(
-            season='2023-24',
+            season='2024-25',
             season_type_all_star='Regular Season'
         )
         
@@ -42,7 +57,7 @@ def fetch_team_rosters():
             
             roster = commonteamroster.CommonTeamRoster(
                 team_id=team['id'],
-                season='2023-24'
+                season='2024-25'
             )
             
             roster_df = roster.get_data_frames()[0]
@@ -73,11 +88,16 @@ def save_to_json():
         json.dump(teams_data, f, indent=2)
     print("💾 Equipos guardados en data/teams.json")
     
+    players_data = fetch_players()
+    with open('../data/players.json', 'w') as f:
+        json.dump(players_data, f, indent=2)
+    print("💾 Rosters guardados en data/players.json")
+
     # 2. Obtener estadísticas de jugadores
     players_stats = fetch_current_players()
     if players_stats is not None:
         players_stats.to_json('../data/players_stats_2023_24.json', orient='records', indent=2)
-        print("💾 Estadísticas guardadas en data/players_stats_2023_24.json")
+        print("💾 Estadísticas guardadas en data/players_stats_2024_25.json")
     
     # 3. Obtener rosters detallados
     rosters_data = fetch_team_rosters()

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, League_Gothic } from "next/font/google";
 
 import { ColorSchemeScript, mantineHtmlProps } from "@mantine/core";
 import Providers from "./_layout/providers";
@@ -11,6 +11,11 @@ import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const leagueGothic = League_Gothic({
+  variable: "--font-league-gothic",
   subsets: ["latin"],
 });
 
@@ -34,7 +39,9 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript defaultColorScheme="auto" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${leagueGothic.variable}`}
+      >
         <Providers>
           <AppShellLayout>{children}</AppShellLayout>
         </Providers>
