@@ -107,7 +107,12 @@ export default function Home() {
         <Stack>
           {playerId && player && (
             <Flex gap="md">
-              <PlayerPhoto playerId={playerId} teamColor={team.colors[0]} />
+              <Box pos="relative">
+                <PlayerPhoto playerId={playerId} teamColor={team.colors[0]} />
+                <Text pos="absolute" top={5} right={15} size="4rem" c="white">
+                  {player.NUM}
+                </Text>
+              </Box>
               <Stack>
                 <Box>
                   <Flex gap="sm" align="center">
@@ -131,7 +136,7 @@ export default function Home() {
                   <Text>Height {player.HEIGHT}</Text>
                   <Text>Weight {player.WEIGHT}</Text>
                   <Text>Experience {player.EXP}</Text>
-                  <Text>How Acquired {player.HOW_ACQUIRED}</Text>
+                  <Text>{player.HOW_ACQUIRED}</Text>
                 </Group>
               </Stack>
             </Flex>
