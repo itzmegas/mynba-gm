@@ -28,11 +28,11 @@ def fetch_players():
 
 def fetch_current_players():
     """Obtener estadísticas de jugadores de la temporada actual"""
-    print("🏀 Obteniendo estadísticas de jugadores 2023-24...")
+    print("🏀 Obteniendo estadísticas de jugadores 2025-26...")
     
     try:
         player_stats = leaguedashplayerstats.LeagueDashPlayerStats(
-            season='2024-25',
+            season='2025-26',
             season_type_all_star='Regular Season'
         )
         
@@ -57,7 +57,7 @@ def fetch_team_rosters():
             
             roster = commonteamroster.CommonTeamRoster(
                 team_id=team['id'],
-                season='2024-25'
+                season='2025-26'
             )
             
             roster_df = roster.get_data_frames()[0]
@@ -96,20 +96,20 @@ def save_to_json():
     # 2. Obtener estadísticas de jugadores
     players_stats = fetch_current_players()
     if players_stats is not None:
-        players_stats.to_json('../data/players_stats_2023_24.json', orient='records', indent=2)
+        players_stats.to_json('../data/players_stats_2025_26.json', orient='records', indent=2)
         print("💾 Estadísticas guardadas en data/players_stats_2024_25.json")
     
     # 3. Obtener rosters detallados
     rosters_data = fetch_team_rosters()
-    with open('../data/team_rosters_2023_24.json', 'w') as f:
+    with open('../data/team_rosters_2025_26.json', 'w') as f:
         json.dump(rosters_data, f, indent=2)
-    print("💾 Rosters guardados en data/team_rosters_2023_24.json")
+    print("💾 Rosters guardados en data/team_rosters_2025_26.json")
     
     print("\n🎉 ¡Todos los datos descargados exitosamente!")
     print("📁 Archivos creados:")
     print("  - data/teams.json")
-    print("  - data/players_stats_2023_24.json") 
-    print("  - data/team_rosters_2023_24.json")
+    print("  - data/players_stats_2025_26.json") 
+    print("  - data/team_rosters_2025_26.json")
 
 if __name__ == "__main__":
     save_to_json()

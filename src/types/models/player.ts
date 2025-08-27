@@ -15,4 +15,6 @@ export type Player = {
   SCHOOL: string | null;
   PLAYER_ID: number;
   HOW_ACQUIRED: string | null;
+  NAME?: string | null;
+  LAST_NAME?: string | null;
 };
