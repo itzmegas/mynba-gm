@@ -8,7 +8,7 @@ import {
   DataTableColumn,
   DataTableSortStatus,
 } from "mantine-datatable";
-import PlayerPhoto from "@/components/PlayerPhoto";
+import PlayerPhoto from "@/components/PlayerPhoto/PlayerPhoto";
 import { useUserStore } from "@/store/user.store";
 
 import players_stats from "../../data/players_stats_2025_26.json";
@@ -71,6 +71,7 @@ export default function Home() {
       keyof ExtendedPlayer
     >) as ExtendedPlayer[];
     setRecords(sortStatus.direction === "desc" ? data.reverse() : data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortStatus]);
 
   const columns: DataTableColumn<ExtendedPlayer>[] = [

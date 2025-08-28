@@ -1,0 +1,14 @@
+.backgroundPhoto {
+  background-image: linear-gradient(
+      color-mix(
+        in srgb,
+        lighten(var(--background-team-color), 0.2),
+        transparent 30%
+      ),
+      rgba(10, 10, 10, 0.2)
+    ),
+    url("../../assets/fractalize-spectrum.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
