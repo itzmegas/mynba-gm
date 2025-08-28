@@ -30,7 +30,6 @@ export default function Home() {
     columnAccessor: "PLAYER",
     direction: "asc",
   });
-
   const [records, setRecords] = useState<ExtendedPlayer[]>([]);
 
   useEffect(() => {
