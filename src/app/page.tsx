@@ -1,29 +1,20 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useUserStore } from "@/store/user.store";
-import {
-  Badge,
-  Box,
-  Button,
-  Flex,
-  Group,
-  Image,
-  Stack,
-  Text,
-  Title,
-} from "@mantine/core";
+import { sortBy } from "es-toolkit";
+import { Badge, Box, Flex, Group, Stack, Text, Title } from "@mantine/core";
 import {
   DataTable,
   DataTableColumn,
   DataTableSortStatus,
 } from "mantine-datatable";
-import { sortBy } from "es-toolkit";
+import PlayerPhoto from "@/components/PlayerPhoto";
+import { useUserStore } from "@/store/user.store";
+
 import players_stats from "../../data/players_stats_2025_26.json";
 import team_rosters from "../../data/team_rosters_2025_26.json";
 
 import { Player, PlayerStats } from "@/types";
-import PlayerPhoto from "@/components/PlayerPhoto";
 
 type ExtendedPlayer = Player & Partial<PlayerStats>;
 
@@ -52,16 +43,15 @@ export default function Home() {
       return players.map((player) => ({
         ...player,
         NAME: player.PLAYER.split(" ")[0],
-        LAST_NAME: player.PLAYER.split(" ").slice(1).join(" "),
+        LASTNAME: player.PLAYER.split(" ").slice(1).join(" "),
         ...playerStats.find((p) => p.PLAYER_ID === player.PLAYER_ID),
       }));
     }
     return [];
   }, [team]) as ExtendedPlayer[];
-  console.log("data", data);
 
   const [records, setRecords] = useState<ExtendedPlayer[]>(
-    sortBy(data, ["LAST_NAME"] as Array<keyof ExtendedPlayer>)
+    sortBy(data, ["LASTNAME"] as Array<keyof ExtendedPlayer>)
   );
 
   useEffect(() => {
@@ -76,8 +66,6 @@ export default function Home() {
     }
   }, [team]);
 
-  console.log("records", records);
-
   useEffect(() => {
     const data = sortBy(records, [sortStatus.columnAccessor] as Array<
       keyof ExtendedPlayer
@@ -91,7 +79,7 @@ export default function Home() {
       title: "Name",
       sortable: true,
     },
-    { accessor: "LAST_NAME", title: "Apellido", sortable: true },
+    { accessor: "LASTNAME", title: "Apellido", sortable: true },
     {
       accessor: "GP",
       title: "Partidos Jugados",
@@ -152,7 +140,7 @@ export default function Home() {
                   <Text size="3rem">{player.NAME?.toLocaleUpperCase()}</Text>
                 </Flex>
                 <Text size="4rem" fw="900" mt={-10}>
-                  {player.LAST_NAME?.toLocaleUpperCase()}
+                  {player.LASTNAME?.toLocaleUpperCase()}
                 </Text>
               </Box>
 
