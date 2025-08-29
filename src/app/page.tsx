@@ -31,7 +31,9 @@ export default function Home() {
     direction: "asc",
   });
 
-  const data = useMemo(() => {
+  const [records, setRecords] = useState<ExtendedPlayer[]>([]);
+
+  useEffect(() => {
     if (team) {
       const players =
         team_rosters[team.abbreviation as keyof typeof team_rosters].players;
@@ -40,24 +42,16 @@ export default function Home() {
         (player) => player.TEAM_ID === team.id
       );
 
-      return players.map((player) => ({
+      const data = players.map((player) => ({
         ...player,
         NAME: player.PLAYER.split(" ")[0],
         LASTNAME: player.PLAYER.split(" ").slice(1).join(" "),
         ...playerStats.find((p) => p.PLAYER_ID === player.PLAYER_ID),
       }));
-    }
-    return [];
-  }, [team]) as ExtendedPlayer[];
 
-  const [records, setRecords] = useState<ExtendedPlayer[]>(
-    sortBy(data, ["LASTNAME"] as Array<keyof ExtendedPlayer>)
-  );
+      setRecords(sortBy(data, ["LASTNAME"]));
 
-  useEffect(() => {
-    if (team) {
-      const findedPlayer =
-        team_rosters[team.abbreviation as keyof typeof team_rosters].players[0];
+      const findedPlayer = data[0];
 
       if (findedPlayer) {
         setPlayer(findedPlayer);
